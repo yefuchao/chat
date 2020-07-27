@@ -470,6 +470,14 @@ type User struct {
 	DeviceArray []*DeviceDef `json:"-" bson:"devices"`
 }
 
+func (u *User) UnmarshalBinary(data []byte) error {
+	return json.Unmarshal(data, u)
+}
+
+func (u *User) MarshalBinary() ([]byte, error) {
+	return json.Marshal(u)
+}
+
 // AccessMode is a definition of access mode bits.
 type AccessMode uint
 
