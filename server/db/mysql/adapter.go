@@ -58,7 +58,7 @@ func (a *adapter) Open(jsonconfig json.RawMessage) error {
 	var err error
 	var config configType
 
-	if err = json.Unmarshal(jsonconfig, &config); err != nil {
+	if err = json.Unmarshal(jsonconfig, &config); err != nil {FindUsers
 		return errors.New("mysql adapter failed to parse config: " + err.Error())
 	}
 
